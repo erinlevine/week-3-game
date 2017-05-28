@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	PSEUDO CODE: 
+	// PSEUDO CODE: 
 
 	crystals = ['assets/images/red.png','assets/images/blue.png','assets/images/yellow.png','assets/images/green.png'];
 
@@ -14,8 +14,8 @@ $(document).ready(function() {
 	var counter = 0;
 
 	//Edit HTML to update wins and losses within jQuery
-	$("#win").text(wins);
-	$("#losses".text(losses);
+	$("#wins").html(wins);
+	$("#losses").html(losses);
 
 	randomCrystals();
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
 		
 	function randomCrystals () {
 		//Create an empty array for colored crystals
-		var numberArray []
+		var numberArray = []
 			//There are 4 colored crystals, hence why it is less than 4. Using a while loop.
 			//While loop will continue to be executed as long as the condition is true.
 			while(numberArray.length < 4){
@@ -53,8 +53,11 @@ $(document).ready(function() {
 			imgCrystal.addClass("crystalImage");
 			$("#crystals").append(imgCrystal);
 		}
-		
 	}
+});
+		
+	
+
 	//Starting number should be between 19-120
 			//var randomNumber = randomIntFromInterval(19,120)
 			//var randomNumber = Math.floor(Math.random()*???)
