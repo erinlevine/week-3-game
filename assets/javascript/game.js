@@ -1,11 +1,8 @@
 $(document).ready(function() {
 
-	// PSEUDO CODE: 
 
 	crystals = ['assets/images/red.png','assets/images/blue.png','assets/images/yellow.png','assets/images/green.png'];
 
-	//Create variable for starting number. Starting number should be between 19-120.
-	var startingNumber = 0;
 	//Create variable for wins
 	var wins = 0;
 	//Create variable for losses
@@ -72,7 +69,7 @@ $(document).ready(function() {
 		//Setting the class value in the HTML to change based upon the variable guessThisNumber
 		$(".value").html(guessThisNumber);
 		//Setting the class imgCrystal for an on click event
-		$(".imgCrystal").on("click", function()){
+		$("#crystals").on("click", function(){
 			//***The counter variable is now equal to the counter number plus... I don't know
 			//***We're parsing a string and turning it into an integer. 
 			counter = counter + parseInt($(this).data("num"));
@@ -93,9 +90,26 @@ $(document).ready(function() {
 				//Run two functions:
 				newCrystals();
 				newGame();
-			};
-		};
-	});	
+			//Creating another condition
+			//If counter varible is greater than guessThisNumber then:
+			} else if (counter > guessThisNumber){
+				//Change counter ID to say "Sorry..."
+				$("#counter").html("Sorry! You lost! Try again.");
+				//Increases loss by 1.
+				losses++
+				//Change losses ID to reflect losses variable
+				$("losses").html(losses);
+				//console.logging losses variable
+				console.log(losses);
+				//Change crystals ID in HTML and change it to empty.
+				$("#crystals").empty();
+				//Run two functions:
+				newCrystals();
+				newGame();
+			}
+		});
+	}
+});
 		
 		
 	
