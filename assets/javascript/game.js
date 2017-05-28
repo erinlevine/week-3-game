@@ -18,6 +18,7 @@ $(document).ready(function() {
 	$("#losses").html(losses);
 
 	randomCrystals();
+	newGame();
 
 	//Create function for all colored crystals)
 		
@@ -38,7 +39,7 @@ $(document).ready(function() {
 						found = true; break
 					}
 				}
-				//I have no idea what this even means. 
+				//***I have no idea what this even means. 
 				if(!found)numberArray[numberArray.length]=randomNumber;
 			}
 		console.log(numberArray);
@@ -54,7 +55,48 @@ $(document).ready(function() {
 			$("#crystals").append(imgCrystal);
 		}
 	}
-});
+
+	function newGame () {
+		//Setting the counter variable to change in the #yourScore html
+		counter = 0;
+		$("#yourScore").html(counter);
+		//Creating a function that will spit out a random integer between min and max
+		function randomIntFromInterval(min,max){
+			//Returning a random number that is rounded down to the nearest whole number.
+			//***Subtracting the max from the min and adding 1? I don't know what this really means.
+			return Math.floor(Math.random()*(max-min+1)+min);
+		}
+		//Creating a new varible for user to guess.
+		//Setting the conditions for min 19 and max 120.
+		var guessThisNumber = randomIntFromInterval(19,120);
+		//Setting the class value in the HTML to change based upon the variable guessThisNumber
+		$(".value").html(guessThisNumber);
+		//Setting the class imgCrystal for an on click event
+		$(".imgCrystal").on("click", function()){
+			//***The counter variable is now equal to the counter number plus... I don't know
+			//***We're parsing a string and turning it into an integer. 
+			counter = counter + parseInt($(this).data("num"));
+			//Setting the ID yourScore in the HTML to change based upon the varible counter
+			$("#yourScore").html(counter);
+			//Setting a condition if counter equals guessThisNumber then:
+			if (counter === guessThisNumber){
+				//Change counter ID in HTML to "Congrats..."
+				$("#counter").html("Congratulations! You won!");
+				//Increase wins count by 1.
+				wins++
+				//Change wins ID in HTML to wins variable
+				$("#wins").html(wins);
+				//console.logging the wins for debugging purposes.
+				console.log(wins);
+				//Change the crystals ID in HTML and clear random number associated with it.
+				$("#crystals").empty();
+				//Run two functions:
+				newCrystals();
+				newGame();
+			};
+		};
+	});	
+		
 		
 	
 
