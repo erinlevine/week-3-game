@@ -19,11 +19,11 @@
 	<div id="instructions">
 		<p><h3>The instructions are easy-peasy, friend!</h3></p>
 		<p>You will be given a random number as the page loads.</p>
-		<p>Notice below that there are four super beautiful crystals below?</p>
+		<p>Notice the four super beautiful crystals below?</p>
 		<p>When you click on those crystals, a specific number of points will be added to your total score.</p>
 		<p>You wanna win? Match your total score to the random number!</p>
 		<p>You wanna lose? Have your total score go above the random number!</p>
-		<p>Each time the game beings, the game will change values of the crystals.</p>
+		<p>Each time the game beings, the game will change values of the crystals and a new random number will be assigned.</p>
 	</div>
 
 	<div class="container">
@@ -37,23 +37,24 @@
 			<h3>Losses: <span id="losses"></span></h3>
 		</div>
 
-		<div id="crystals"></div>
+		<div id="crystals">
+			<img src="assets/images/red.png" class="red">
+			<img src="assets/images/blue.png" class="blue">
+			<img src="assets/images/yellow.png" class="yellow">
+			<img src="assets/images/green.png" class="green">
+		</div>
+
 
 		<div id="totalScore">
 			<h2 id="yts">Your Total Score is: <span id="yourScore">0</span></h2>
 		</div>
 
 	</div>
-	</div>
+</div>
 
 
 
-
-
-
-
-<!-- Added link to the jQuery Library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 	
